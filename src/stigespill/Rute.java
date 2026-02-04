@@ -1,4 +1,4 @@
-package SnakesAndLadders;
+package stigespill;
 
 import java.util.ArrayList;
 

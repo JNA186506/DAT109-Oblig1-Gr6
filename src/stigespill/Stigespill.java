@@ -1,4 +1,9 @@
-package SnakesAndLadders;
+package stigespill;
 
-public class SNLMain {
+/**
+ * @author magnemikael
+ * @author johannesnikolai
+ */
+public class Stigespill {
+
 }
