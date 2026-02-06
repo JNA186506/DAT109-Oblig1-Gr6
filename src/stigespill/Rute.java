@@ -2,6 +2,12 @@ package stigespill;
 
 import java.util.ArrayList;
 
+/**
+ * @author johannesnikolai
+ * @author magnemikael
+ * Denne klassen skal inneholde rutenummer og brikkene som står på ruten.
+ */
+
 public class Rute {
 
     private ArrayList<Brikke> brikker;
@@ -22,10 +28,6 @@ public class Rute {
 
     public int getNummer() {
         return nummer;
-    }
-
-    public boolean sjekkOmBrikke(Brikke brikke) {
-        return brikker.contains(brikke);
     }
 
     public void leggTilBrikke(Brikke nyBrikke) {

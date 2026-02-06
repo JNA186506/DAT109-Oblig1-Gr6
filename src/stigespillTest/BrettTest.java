@@ -1,17 +1,11 @@
 package stigespillTest;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import stigespill.Brett;
-import stigespill.Brikke;
-import stigespill.Spiller;
-import stigespill.Terning;
+import stigespill.*;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BrettTest {
 
@@ -75,4 +69,44 @@ public class BrettTest {
         assertEquals(8, spiller.getBrikke().getPos());
 
     }
+
+    @Test
+    public void testSpillerInkrement() {
+        Stigespill stigespill = new Stigespill(3);
+
+        Brikke forsteBrikke = stigespill.getBrikkeSomSpiller();
+
+        assertEquals(1, forsteBrikke.getNummer());
+
+        stigespill.inkrementerSpiller();
+
+        Brikke andreBrikke = stigespill.getBrikkeSomSpiller();
+
+        assertEquals(2, andreBrikke.getNummer());
+
+        stigespill.inkrementerSpiller();
+        stigespill.inkrementerSpiller();
+
+        forsteBrikke = stigespill.getBrikkeSomSpiller();
+
+        assertNotEquals(1, andreBrikke.getNummer());
+
+        assertEquals(1, forsteBrikke.getNummer());
+
+    }
+
+    @Test
+    public void testFengsel() {
+        Stigespill stigespill = new Stigespill(3);
+
+        Brikke forsteSpiller = stigespill.getBrikkeSomSpiller();
+
+        assertFalse(forsteSpiller.erIFengsel());
+
+        stigespill.getBrett().settIFengsel(forsteSpiller);
+
+        assertTrue(forsteSpiller.erIFengsel());
+
+    }
+
 }
